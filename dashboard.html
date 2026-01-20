@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FraudShield AI</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <i class="fas fa-shield-alt"></i> FraudShield AI
+            </a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="/dashboard" class="nav-link active"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+                <div class="status-badge" id="connectionStatus">
+                    <i class="fas fa-spinner fa-spin"></i> Connecting...
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <main class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-section">
+                <h3><i class="fas fa-cogs"></i> Model Controls</h3>
+                
+                <div class="model-status" id="modelStatus">
+                    <p><i class="fas fa-spinner fa-spin"></i> Checking model status...</p>
+                </div>
+                
+                <div class="control-group">
+                    <label for="sensitivity">Detection Sensitivity</label>
+                    <input type="range" id="sensitivity" min="1" max="10" value="5">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem; opacity: 0.7;">
+                        <span>Low</span>
+                        <span>Medium</span>
+                        <span>High</span>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" id="trainModel" style="width: 100%; margin-bottom: 1rem;">
+                    <i class="fas fa-brain"></i> Train Model
+                </button>
+                
+                <button class="btn btn-secondary" id="loadModel" style="width: 100%;">
+                    <i class="fas fa-download"></i> Load Model
+                </button>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3><i class="fas fa-credit-card"></i> Quick Test</h3>
+                
+                <div class="control-group">
+                    <label for="testAmount">Transaction Amount ($)</label>
+                    <input type="number" id="testAmount" min="1" max="100000" value="250" placeholder="Enter amount">
+                </div>
+                
+                <button class="btn btn-primary" id="testTransaction" style="width: 100%; margin-bottom: 1rem;">
+                    <i class="fas fa-search"></i> Test Transaction
+                </button>
+                
+                <button class="btn btn-secondary" id="randomTest" style="width: 100%;">
+                    <i class="fas fa-random"></i> Random Test
+                </button>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3><i class="fas fa-history"></i> Quick Stats</h3>
+                <div class="quick-stats" id="quickStats">
+                    <p>Test transactions to see stats</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="dashboard-main">
+            <!-- Detection Result -->
+            <div class="result-card" id="resultSection">
+                <div class="result-header">
+                    <h2><i class="fas fa-search-dollar"></i> Fraud Detection Result</h2>
+                    <span class="status-badge" id="resultStatus">Waiting for input</span>
+                </div>
+                
+                <div class="result-content" id="resultContent">
+                    <div class="loading">
+                        <i class="fas fa-credit-card"></i>
+                        <p>Test a transaction to see fraud detection results</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Activity -->
+            <div class="result-card">
+                <div class="result-header">
+                    <h2><i class="fas fa-history"></i> Recent Activity</h2>
+                    <button class="btn btn-secondary btn-small" id="refreshActivity">
+                        <i class="fas fa-sync"></i> Refresh
+                    </button>
+                </div>
+                
+                <div class="activity-list" id="activityList">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading activity...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Model Training Status -->
+            <div class="result-card" id="trainingSection" style="display: none;">
+                <div class="result-header">
+                    <h2><i class="fas fa-cogs"></i> Model Training</h2>
+                    <span class="status-badge warning" id="trainingStatus">In Progress</span>
+                </div>
+                
+                <div class="training-progress">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>Training Progress</span>
+                        <span id="trainingProgress">0%</span>
+                    </div>
+                    <div class="metric-bar">
+                        <div class="metric-fill" id="trainingBar" style="width: 0%; background: var(--warning-color);"></div>
+                    </div>
+                    <p id="trainingMessage" style="margin-top: 1rem; text-align: center;">
+                        Starting training process...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

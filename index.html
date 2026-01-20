@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FraudShield AI - Real-time Fraud Detection</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <i class="fas fa-shield-alt"></i> FraudShield AI
+            </a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                <a href="/dashboard" class="nav-link"><i class="fas fa-chart-line"></i> Dashboard</a>
+                <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+
+                <div class="status-badge" id="modelStatus">
+                    <i class="fas fa-spinner fa-spin"></i> Loading...
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>AI-Powered <span class="highlight">Fraud Detection</span></h1>
+                <p class="hero-subtitle">
+                    Protect your transactions with real-time machine learning detection.
+                    99.9% accuracy in identifying fraudulent activities.
+                </p>
+                <div class="hero-buttons">
+                    <a href="/dashboard" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Try Live Demo
+                    </a>
+                    <button class="btn btn-secondary" id="learnMore">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number" id="accuracyStat">99.9</div>
+                        <div class="stat-label">Detection Accuracy</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="responseStat">50</div>
+                        <div class="stat-label">ms Response Time</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" id="fraudStat">0.02</div>
+                        <div class="stat-label">False Positive Rate</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="demo-card">
+                    <div class="demo-header">
+                        <h3><i class="fas fa-bolt"></i> Live Detection Preview</h3>
+                        <span class="status-badge success">Active</span>
+                    </div>
+                    <div class="demo-content">
+                        <div class="transaction safe">
+                            <div class="transaction-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="transaction-info">
+                                <h4>Transaction #TX4892</h4>
+                                <p>Amazon • $124.99 • New York</p>
+                            </div>
+                            <div class="transaction-status">
+                                <span class="status-tag safe">SAFE</span>
+                            </div>
+                        </div>
+                        <div class="transaction fraud">
+                            <div class="transaction-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="transaction-info">
+                                <h4>Transaction #TX4893</h4>
+                                <p>Unknown • $2,850.00 • Moscow</p>
+                            </div>
+                            <div class="transaction-status">
+                                <span class="status-tag fraud">FRAUD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose FraudShield AI?</h2>
+            <p class="section-subtitle">Advanced features for comprehensive fraud protection</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <p>Advanced algorithms learn from patterns to detect anomalies in real-time.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-time Analysis</h3>
+                    <p>50ms response time for instant fraud detection and prevention.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Risk Scoring</h3>
+                    <p>Each transaction receives a risk score from 0-100 with detailed insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Protect Your Transactions?</h2>
+            <p>Get started with our free demo to see FraudShield AI in action.</p>
+            <a href="/dashboard" class="btn btn-primary btn-large">
+                <i class="fas fa-play-circle"></i> Start Free Demo
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-shield-alt"></i> FraudShield AI</h3>
+                    <p>Real-time fraud detection powered by machine learning.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="/">Home</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="./about.html">About</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FraudShield AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script>
+        // Home page specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate stats
+            function animateCounter(element, target, suffix = '') {
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = current.toFixed(1) + suffix;
+                }, 20);
+            }
+            
+            // Start animations
+            setTimeout(() => {
+                const accuracy = document.getElementById('accuracyStat');
+                const response = document.getElementById('responseStat');
+                const fraud = document.getElementById('fraudStat');
+                
+                if (accuracy) animateCounter(accuracy, 99.9, '%');
+                if (response) animateCounter(response, 50, 'ms');
+                if (fraud) animateCounter(fraud, 0.02, '%');
+            }, 1000);
+            
+            // Check model status
+            async function checkModelStatus() {
+                try {
+                    const response = await fetch('/api/model/status');
+                    const data = await response.json();
+                    
+                    const statusEl = document.getElementById('modelStatus');
+                    if (statusEl) {
+                        if (data.is_trained) {
+                            statusEl.innerHTML = '<i class="fas fa-check-circle"></i> Model Loaded';
+                            statusEl.className = 'status-badge success';
+                        } else {
+                            statusEl.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Train Model';
+                            statusEl.className = 'status-badge warning';
+                        }
+                    }
+                } catch (error) {
+                    console.log('Could not check model status');
+                }
+            }
+            
+            checkModelStatus();
+            
+            // Learn More button
+            const learnMoreBtn = document.getElementById('learnMore');
+            if (learnMoreBtn) {
+                learnMoreBtn.addEventListener('click', () => {
+                    document.querySelector('.features').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
